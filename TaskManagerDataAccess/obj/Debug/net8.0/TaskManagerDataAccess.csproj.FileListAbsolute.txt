@@ -1,0 +1,15 @@
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.AssemblyInfoInputs.cache
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.AssemblyInfo.cs
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.csproj.CoreCompileInputs.cache
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.sourcelink.json
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/bin/Debug/net8.0/TaskManagerDataAccess.deps.json
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/bin/Debug/net8.0/TaskManagerDataAccess.runtimeconfig.json
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/bin/Debug/net8.0/TaskManagerDataAccess.dll
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/bin/Debug/net8.0/TaskManagerDataAccess.pdb
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.csproj.AssemblyReference.cache
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.dll
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/refint/TaskManagerDataAccess.dll
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.pdb
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/TaskManagerDataAccess.genruntimeconfig.cache
+/home/daniele/MyProjects/TaskManager/TaskManagerDataAccess/obj/Debug/net8.0/ref/TaskManagerDataAccess.dll
