@@ -9,7 +9,7 @@ using TaskManagerDataAccess.DataAccess;
 
 namespace TaskManagerDataAccess.Migrations
 {
-    [DbContext(typeof(TaskManagerContext))]
+    [DbContext(typeof(TaskManagerDbContext))]
     partial class TaskManagerContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

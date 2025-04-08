@@ -10,7 +10,7 @@ using TaskManagerDataAccess.DataAccess;
 
 namespace TaskManagerDataAccess.Migrations
 {
-    [DbContext(typeof(TaskManagerContext))]
+    [DbContext(typeof(TaskManagerDbContext))]
     [Migration("20250402185004_InitialMigration")]
     partial class InitialMigration
     {
