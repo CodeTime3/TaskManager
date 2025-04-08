@@ -25,7 +25,6 @@ public class UserService
     public async Task<User[]> GetAllUsers ()
     {
         var users = await _dbContext.Users
-            .FromSql($"select * from users")//change users with a parameter
             .ToListAsync();
 
         ArgumentNullException.ThrowIfNull(users);
@@ -42,6 +41,16 @@ public class UserService
         return user;
     }
 
+    public async Task<User> GetUserByUsername (string username)
+    {
+        var user = await _dbContext.Users
+            .FirstOrDefaultAsync(u => u.UserName.Equals(username));
+
+        ArgumentNullException.ThrowIfNull(user);
+
+        return user;
+    } 
+
     public async Task<User> UpdateUser (User user)
     {
         ArgumentNullException.ThrowIfNull(user);
@@ -54,7 +63,7 @@ public class UserService
 
     public async Task DeleteUser (int id)
     {
-        var user = _dbContext.Users.Find(id);
+        var user = await _dbContext.Users.FindAsync(id);
 
         ArgumentNullException.ThrowIfNull(user);
 
