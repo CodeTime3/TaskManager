@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<TaskManagerContext>(options =>
+builder.Services.AddDbContext<TaskManagerDbContext>(options =>
     options.UseMySQL(
         builder.Configuration.GetConnectionString("DefaultConnection"), 
         x => x.MigrationsAssembly("TaskManagerDataAccess")));
