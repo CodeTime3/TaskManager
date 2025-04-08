@@ -17,9 +17,9 @@ public class UserServiceTest
         using var context = new TaskManagerDbContext(options);
         User user = new User("Nicola", "nicola@gmail.com", "nicola");
         UserService userService = new UserService(context);
-        user = await userService.AddUser(user);
+        await userService.AddUser(user);
 
-        var usersInDb = context.Users.ToList();
+        var usersInDb = context.Users.ToArray();
 
         Assert.Equal("Nicola", usersInDb[1].UserName);
         Assert.Equal("nicola@gmail.com", usersInDb[1].UserMail);
@@ -38,9 +38,9 @@ public class UserServiceTest
         UserService userService = new UserService(context);
         await userService.GetAllUsers();
 
-        var usersInDb = context.Users.ToList();
+        var usersInDb = context.Users.ToArray();
 
-        Assert.Equal(2, usersInDb.Count);
+        Assert.Equal(2, usersInDb.Length);
     }
 
     [Fact]
@@ -56,6 +56,21 @@ public class UserServiceTest
         user = await userService.GetUsers(2);
 
         Assert.Equal("Nicola", user.UserName);
+    }
+
+    [Fact]
+    public async Task GetUserByUsername_should_work()
+    {
+        var options = new DbContextOptionsBuilder<TaskManagerDbContext>()
+            .UseMySQL("server=localhost;uid=root;pwd=CT22d03p06;database=TaskManager")
+            .Options;
+
+        using var context = new TaskManagerDbContext(options);
+        User user = new User();
+        UserService userService = new UserService(context);
+        user = await userService.GetUserByUsername("Daniele");
+
+        Assert.Equal("Daniele", user.UserName);
     }
 
     [Fact]
@@ -86,8 +101,8 @@ public class UserServiceTest
         UserService userService = new UserService(context);
         await userService.DeleteUser(5);
 
-        var usersInDb = context.Users.ToList();
+        var usersInDb = context.Users.ToArray();
 
-        Assert.Equal(1, usersInDb.Count);
+        Assert.Equal(1, usersInDb.Length);
     }
 }
