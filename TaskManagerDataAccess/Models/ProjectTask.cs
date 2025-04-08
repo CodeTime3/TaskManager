@@ -17,4 +17,21 @@ public class ProjectTask
     [MaxLength(200)]
     public string TaskText { get; set; }
     public Status TaskStatus { get; set; } = Status.NotStarted;
+
+    public ProjectTask (int projectId, string taskTitle, string taskText)
+    {   
+        ProjectId = projectId;
+        TaskTitle = taskTitle;
+        TaskText = taskText;
+    }
+
+    public ProjectTask (int projectId, string taskTitle, string taskText, Status taskStatus)
+    {   
+        ProjectId = projectId;
+        TaskTitle = taskTitle;
+        TaskText = taskText;
+        TaskStatus = taskStatus;
+    }
+
+    public ProjectTask () {}
 }

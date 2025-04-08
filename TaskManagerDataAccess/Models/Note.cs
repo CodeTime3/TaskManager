@@ -16,4 +16,13 @@ public class Note
     public string NoteTitle { get; set; }
     [MaxLength(200)]
     public string NoteText { get; set; }
+
+    public Note (int projectTaskId, string noteTitle, string noteText)
+    {
+        ProjectTaskId = projectTaskId;
+        NoteTitle = noteTitle;
+        NoteText = noteText;
+    }
+
+    public Note () {}
 }

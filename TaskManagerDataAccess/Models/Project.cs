@@ -13,4 +13,17 @@ public class Project
     [Required]
     public string ProjectName { get; set; }
     public Status ProjectStatus { get; set; } = Status.NotStarted;
+
+    public Project (string projectName)
+    {
+        ProjectName = projectName;
+    }
+
+    public Project (string projectName, Status projectStatus)
+    {
+        ProjectName = projectName;
+        ProjectStatus = projectStatus;
+    }
+
+    public Project () {}
 }
