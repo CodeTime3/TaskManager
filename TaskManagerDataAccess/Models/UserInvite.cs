@@ -25,4 +25,16 @@ public class UserInvite
     [Required]
     [MaxLength(500)]
     public string InviteLink { get; set; }
+
+    public UserInvite (int userId, int projectId, DateTime expirationDate, string inviteMailObject, string inviteMailText, string inviteLink)
+    {
+        UserId = userId;
+        ProjectId = projectId;
+        ExpirationDate = expirationDate;
+        InviteMailObject = inviteMailObject;
+        InviteMailText = inviteMailText;
+        InviteLink = inviteLink;
+    }
+
+    public UserInvite () {}
 }

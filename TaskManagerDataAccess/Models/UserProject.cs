@@ -11,5 +11,20 @@ public class UserProject
     [ForeignKey("UserId")]
     public int UserId { get; set; }
     public User User { get; set; }
-    public Role Role { get; set; } 
+    public Role Role { get; set; } = Role.Administrator;
+
+    public UserProject (int projectId, int userId)
+    {
+        ProjectId = projectId;
+        UserId = userId;
+    }
+
+    public UserProject (int projectId, int userId, Role role)
+    {
+        ProjectId = projectId;
+        UserId = userId;
+        Role = role;
+    }
+
+    public UserProject () {}
 }
