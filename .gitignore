@@ -31,3 +31,5 @@ TaskManagerTest/obj/Debug/net8.0/TaskManagerTest.pdb
 TaskManagerTest/obj/Debug/net8.0/TaskManagerTest.sourcelink.json
 TaskManagerTest/obj/Debug/net8.0/ref/TaskManagerTest.dll
 TaskManagerTest/obj/Debug/net8.0/refint/TaskManagerTest.dll
+TaskManagerDataAccess/bin/Debug/net8.0/TaskManagerDataAccess.deps.json
+TaskManagerDataAccess/bin/Debug/net8.0/TaskManagerDataAccess.runtimeconfig.json
