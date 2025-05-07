@@ -10,12 +10,15 @@ public class EmailConfirm
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
     public int EmailConfirmId { get; set; }
-    public Guid EmailConfirmToken { get; set; }
+    [ForeignKey("UserId")]
+    public int UserId { get; set; }
+    public User User { get; set; }
+    public string EmailConfirmToken { get; set; }
     public DateTime EmailConfirmCreateAt { get; set; }
 
-    public EmailConfirm (int emailConfirmId, Guid emailConfirmToken, DateTime emailConfirmCreateAt) 
-    {
-        EmailConfirmId = emailConfirmId;
+    public EmailConfirm (int userId, string emailConfirmToken, DateTime emailConfirmCreateAt) 
+    {   
+        UserId = userId;
         EmailConfirmToken = emailConfirmToken;
         EmailConfirmCreateAt = emailConfirmCreateAt;
     }
