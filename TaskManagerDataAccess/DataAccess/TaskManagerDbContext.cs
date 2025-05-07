@@ -13,6 +13,7 @@ public class TaskManagerDbContext : DbContext
     public DbSet<Note> Notes { get; set; }
     public DbSet<UserProject> UserProjects { get; set; }
     public DbSet<UserInvite> UserInvites { get; set; }
+    public DbSet<EmailConfirm> EmailConfirms { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
