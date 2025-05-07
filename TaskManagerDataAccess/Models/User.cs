@@ -9,6 +9,9 @@ public class User
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
     public int UserId { get; set; }
+    [ForeignKey("EmailConfirmId")]
+    public int EmailConfirmId { get; set; }
+    public EmailConfirm EmailConfirm { get; set; }
     [Required]
     [MaxLength(50)]
     [MinLength(5)]
@@ -21,8 +24,9 @@ public class User
     [MinLength(8)]
     public string UserHash { get; set; }
 
-    public User(string userName, string userMail, string userHash)
-    {
+    public User(int emailConfirmId, string userName, string userMail, string userHash)
+    {   
+        EmailConfirmId = emailConfirmId;
         UserName = userName;
         UserMail = userMail;
         UserHash = userHash;
