@@ -33,3 +33,13 @@ TaskManagerTest/obj/Debug/net8.0/ref/TaskManagerTest.dll
 TaskManagerTest/obj/Debug/net8.0/refint/TaskManagerTest.dll
 TaskManagerDataAccess/bin/Debug/net8.0/TaskManagerDataAccess.deps.json
 TaskManagerDataAccess/bin/Debug/net8.0/TaskManagerDataAccess.runtimeconfig.json
+TaskManagerWeb/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+TaskManagerWeb/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+TaskManagerWeb/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+TaskManagerWeb/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+TaskManagerWeb/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+TaskManagerWeb/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+TaskManagerWeb/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+TaskManagerWeb/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+TaskManagerWeb/obj/Debug/net8.0/TaskManagerWeb.dll
+TaskManagerWeb/obj/Debug/net8.0/TaskManagerWeb.csproj.FileListAbsolute.txt
