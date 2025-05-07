@@ -11,7 +11,7 @@ using TaskManagerDataAccess.DataAccess;
 namespace TaskManagerDataAccess.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    [Migration("20250507122727_AddEmailConfirm")]
+    [Migration("20250507163204_AddEmailConfirm")]
     partial class AddEmailConfirm
     {
         /// <inheritdoc />
@@ -31,10 +31,16 @@ namespace TaskManagerDataAccess.Migrations
                     b.Property<DateTime>("EmailConfirmCreateAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<Guid>("EmailConfirmToken")
-                        .HasColumnType("char(36)");
+                    b.Property<string>("EmailConfirmToken")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("EmailConfirmId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("email_confirms");
                 });
@@ -119,9 +125,6 @@ namespace TaskManagerDataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("EmailConfirmId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserHash")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -137,8 +140,6 @@ namespace TaskManagerDataAccess.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("UserId");
-
-                    b.HasIndex("EmailConfirmId");
 
                     b.HasIndex("UserMail")
                         .IsUnique();
@@ -206,6 +207,17 @@ namespace TaskManagerDataAccess.Migrations
                     b.ToTable("user_projects");
                 });
 
+            modelBuilder.Entity("TaskManagerDataAccess.Models.EmailConfirm", b =>
+                {
+                    b.HasOne("TaskManagerDataAccess.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TaskManagerDataAccess.Models.Note", b =>
                 {
                     b.HasOne("TaskManagerDataAccess.Models.ProjectTask", "ProjectTask")
@@ -226,17 +238,6 @@ namespace TaskManagerDataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Project");
-                });
-
-            modelBuilder.Entity("TaskManagerDataAccess.Models.User", b =>
-                {
-                    b.HasOne("TaskManagerDataAccess.Models.EmailConfirm", "EmailConfirm")
-                        .WithMany()
-                        .HasForeignKey("EmailConfirmId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EmailConfirm");
                 });
 
             modelBuilder.Entity("TaskManagerDataAccess.Models.UserInvite", b =>
