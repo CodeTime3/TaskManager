@@ -15,15 +15,15 @@ public class UserServiceTest
             .Options;
 
         using var context = new TaskManagerDbContext(options);
-        User user = new User("Nicola", "nicola@gmail.com", "nicola");
+        User user = new User("Daniele", "daniele@gmail.com", "daniele");
         UserService userService = new UserService(context);
         await userService.AddUser(user);
 
         var usersInDb = context.Users.ToArray();
 
-        Assert.Equal("Nicola", usersInDb[1].UserName);
-        Assert.Equal("nicola@gmail.com", usersInDb[1].UserMail);
-        Assert.Equal("nicola", usersInDb[1].UserHash);
+        Assert.Equal("Daniele", usersInDb[0].UserName);
+        Assert.Equal("daniele@gmail.com", usersInDb[0].UserMail);
+        Assert.Equal("daniele", usersInDb[0].UserHash);
     }
 
     [Fact]
