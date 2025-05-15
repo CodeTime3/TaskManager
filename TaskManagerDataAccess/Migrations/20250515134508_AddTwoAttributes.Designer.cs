@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskManagerDataAccess.DataAccess;
 
@@ -10,9 +11,11 @@ using TaskManagerDataAccess.DataAccess;
 namespace TaskManagerDataAccess.Migrations
 {
     [DbContext(typeof(TaskManagerDbContext))]
-    partial class TaskManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20250515134508_AddTwoAttributes")]
+    partial class AddTwoAttributes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

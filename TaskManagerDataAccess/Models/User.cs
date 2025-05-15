@@ -20,13 +20,22 @@ public class User
     [MaxLength(50)]
     [MinLength(8)]
     public string UserHash { get; set; }
-
+    public bool IsUsed { get; set; } = false;
+    
+    public User(string userName, string userMail, string userHash, bool isUsed)
+    {
+        UserName = userName;
+        UserMail = userMail;
+        UserHash = userHash;
+        IsUsed = isUsed;
+    }
+    
     public User(string userName, string userMail, string userHash)
-    {   
+    {
         UserName = userName;
         UserMail = userMail;
         UserHash = userHash;
     }
 
-    public User() {}
+    public User() { }
 }
