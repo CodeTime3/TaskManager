@@ -13,7 +13,12 @@ public class UserProject
     public User User { get; set; }
     public Role Role { get; set; } = Role.Administrator;
 
-    public UserProject (int projectId, int userId)
+    public UserProject (int projectId)
+    {
+        ProjectId = projectId;
+    }
+
+    public UserProject(int projectId, int userId)
     {
         ProjectId = projectId;
         UserId = userId;

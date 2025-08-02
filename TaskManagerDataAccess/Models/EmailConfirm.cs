@@ -17,6 +17,13 @@ public class EmailConfirm
     public DateTime EmailConfirmCreateAt { get; set; }
     public bool IsEmailConfirmed { get; set; } = false;
 
+    public EmailConfirm(int userId, string emailConfirmToken, bool isEmailConfirmed)
+    {
+        UserId = userId;
+        EmailConfirmToken = emailConfirmToken;
+        IsEmailConfirmed = isEmailConfirmed;
+    }
+    
     public EmailConfirm(int userId, string emailConfirmToken, DateTime emailConfirmCreateAt, bool isEmailConfirmed)
     {
         UserId = userId;

@@ -14,7 +14,20 @@ public class Project
     public string ProjectName { get; set; }
     public Status ProjectStatus { get; set; } = Status.NotStarted;
 
-    public Project (string projectName)
+    public Project (int projectId, string projectName, Status projectStatus)
+    {
+        ProjectId = projectId;
+        ProjectName = projectName;
+        ProjectStatus = projectStatus;
+    }
+
+    public Project (int projectId, string projectName)
+    {
+        ProjectId = projectId;
+        ProjectName = projectName;
+    }
+    
+    public Project(string projectName)
     {
         ProjectName = projectName;
     }
