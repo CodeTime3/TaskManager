@@ -17,7 +17,7 @@ public class User
     [MinLength(5)]
     public string UserMail { get; set; }
     [Required]
-    [MaxLength(50)]
+    [MaxLength(250)]
     [MinLength(8)]
     public string UserHash { get; set; }
     public bool IsUsed { get; set; } = false;
@@ -29,7 +29,7 @@ public class User
         UserHash = userHash;
         IsUsed = isUsed;
     }
-    
+
     public User(string userName, string userMail, string userHash)
     {
         UserName = userName;
