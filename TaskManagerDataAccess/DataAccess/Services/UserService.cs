@@ -32,7 +32,7 @@ public class UserService
         return users.ToArray();
     }
 
-    public async Task<User> GetUsers (int id)
+    public async Task<User> GetUser (int id)
     {
         var user = await _dbContext.Users.FindAsync(id);
 
@@ -41,10 +41,10 @@ public class UserService
         return user;
     }
 
-    public async Task<User> GetUserByUsername (string username)
+    public async Task<User> GetUserByUserMail (string mail)
     {
         var user = await _dbContext.Users
-            .FirstOrDefaultAsync(u => u.UserName.Equals(username));
+            .FirstOrDefaultAsync(u => u.UserMail.Equals(mail));
 
         ArgumentNullException.ThrowIfNull(user);
 
