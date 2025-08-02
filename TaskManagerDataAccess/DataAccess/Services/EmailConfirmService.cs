@@ -22,7 +22,7 @@ public class EmailConfirmService
         return emailConfirm;
     }
 
-    public async Task<EmailConfirm> GetEmailConfirmByToken (string token)
+    public async Task<EmailConfirm> GetEmailConfirmByToken(string token)
     {
         var emailConfirm = await _dbContext.EmailConfirms
             .FirstOrDefaultAsync(e => e.EmailConfirmToken.Equals(token));
@@ -32,7 +32,17 @@ public class EmailConfirmService
         return emailConfirm;
     }
 
-    public async Task DeleteAllEmailConfirm (int id)
+    public async Task<EmailConfirm> UpdateEmailConfirm(EmailConfirm emailConfirm)
+    {
+        ArgumentNullException.ThrowIfNull(emailConfirm);
+
+        _dbContext.Update(emailConfirm);
+        await _dbContext.SaveChangesAsync();
+
+        return emailConfirm;
+    }
+
+    public async Task DeleteAllEmailConfirm(int id)
     {
         var emailConfirm = await _dbContext.EmailConfirms
             .Where(e => e.UserId == id)
