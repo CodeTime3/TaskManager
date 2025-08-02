@@ -27,6 +27,8 @@ public class UserProjectService
     {
         var userProjects = await _dbContext.UserProjects
             .Where(u => u.UserId == id)
+            .Include(u => u.Project)
+            .Include(u => u.User)
             .ToListAsync();
 
         ArgumentNullException.ThrowIfNull(userProjects);
@@ -38,6 +40,8 @@ public class UserProjectService
     {
         var userProjects = await _dbContext.UserProjects
             .Where(u => u.ProjectId == id)
+            .Include(u => u.Project)
+            .Include(u => u.User)
             .ToListAsync();
 
         ArgumentNullException.ThrowIfNull(userProjects);
