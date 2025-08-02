@@ -15,15 +15,15 @@ public class UserServiceTest
             .Options;
 
         using var context = new TaskManagerDbContext(options);
-        User user = new User("Daniele", "daniele@gmail.com", "daniele");
+        User user = new User("Nicola", "Nicola@gmail.com", "nicola");
         UserService userService = new UserService(context);
         await userService.AddUser(user);
 
         var usersInDb = context.Users.ToArray();
 
-        Assert.Equal("Daniele", usersInDb[0].UserName);
-        Assert.Equal("daniele@gmail.com", usersInDb[0].UserMail);
-        Assert.Equal("daniele", usersInDb[0].UserHash);
+        Assert.Equal("Nicola", usersInDb[1].UserName);
+        Assert.Equal("Nicola@gmail.com", usersInDb[1].UserMail);
+        Assert.Equal("nicola", usersInDb[1].UserHash);
     }
 
     [Fact]
@@ -53,13 +53,13 @@ public class UserServiceTest
         using var context = new TaskManagerDbContext(options);
         User user = new User();
         UserService userService = new UserService(context);
-        user = await userService.GetUsers(2);
+        user = await userService.GetUser(2);
 
         Assert.Equal("Nicola", user.UserName);
     }
 
     [Fact]
-    public async Task GetUserByUsername_should_work()
+    public async Task GetUserByUserMail_should_work()
     {
         var options = new DbContextOptionsBuilder<TaskManagerDbContext>()
             .UseMySQL("server=localhost;uid=root;pwd=CT22d03p06;database=TaskManager")
@@ -68,9 +68,9 @@ public class UserServiceTest
         using var context = new TaskManagerDbContext(options);
         User user = new User();
         UserService userService = new UserService(context);
-        user = await userService.GetUserByUsername("Daniele");
+        user = await userService.GetUserByUserMail("danikboosting@gmail.com");
 
-        Assert.Equal("Daniele", user.UserName);
+        Assert.Equal("danikboosting@gmail.com", user.UserMail);
     }
 
     [Fact]
@@ -81,7 +81,7 @@ public class UserServiceTest
             .Options;
 
         using var context = new TaskManagerDbContext(options);
-        User user = new User("Nicola", "nicola@gmail.com", "nicola");
+        User user = new User("Nicola", "nicola@gmail.com", null);
         UserService userService = new UserService(context);
         user.UserId = 2;
         user = await userService.UpdateUser(user);

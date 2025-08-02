@@ -18,7 +18,7 @@ public class EmailConfirmServiceTest
         using var context = new TaskManagerDbContext(options);
         DateTime dateTime = new DateTime();
         Guid guid = Guid.NewGuid();
-        EmailConfirm emailConfirm = new EmailConfirm(1, guid.ToString(), dateTime.Date);
+        EmailConfirm emailConfirm = new EmailConfirm(26, guid.ToString(), dateTime.Date);
         EmailConfirmService emailConfirmService = new EmailConfirmService(context);
         await emailConfirmService.AddEmailConfirm(emailConfirm);
 
@@ -45,6 +45,25 @@ public class EmailConfirmServiceTest
     }
 
     [Fact]
+    public async Task UpdateEmailConfirm_should_work()
+    {
+        var options = new DbContextOptionsBuilder<TaskManagerDbContext>()
+            .UseMySQL("server=localhost;uid=root;pwd=CT22d03p06;database=TaskManager")
+            .Options;
+
+        using var context = new TaskManagerDbContext(options);
+        var token = "bc9d5b97-ce90-49ba-9610-f5129e6f39ac";
+        EmailConfirm emailConfirm = new EmailConfirm(26, token, true);
+        emailConfirm.EmailConfirmId = 31;
+        EmailConfirmService emailConfirmService = new EmailConfirmService(context);
+        await emailConfirmService.UpdateEmailConfirm(emailConfirm);
+
+        var emailConfirmInDb = context.EmailConfirms.ToArray();
+
+        Assert.True(emailConfirmInDb[1].IsEmailConfirmed);
+    }
+
+    [Fact]
     public async Task DeleteAllEmailConfirm_should_work()
     {
         var options = new DbContextOptionsBuilder<TaskManagerDbContext>()
@@ -54,10 +73,10 @@ public class EmailConfirmServiceTest
         using var context = new TaskManagerDbContext(options);
         EmailConfirm emailConfirm = new EmailConfirm();
         EmailConfirmService emailConfirmService = new EmailConfirmService(context);
-        await emailConfirmService.DeleteAllEmailConfirm(1);
+        await emailConfirmService.DeleteAllEmailConfirm(26);
 
         var emailConfirmInDb = context.EmailConfirms.ToArray();
 
-        Assert.Equal(0, emailConfirmInDb.Length);
+        Assert.Equal(1, emailConfirmInDb.Length);
     }
 }
