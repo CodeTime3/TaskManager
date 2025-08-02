@@ -1,9 +1,10 @@
 namespace TaskManagerDataAccess;
 
 public enum Status
-{
-    NotStarted = 0,
-    InProgress = 1,
-    Completed = 2,
-    Paused = 3
+{   
+    NotValid = 0,
+    NotStarted = 1,
+    InProgress = 2,
+    Completed = 3,
+    Paused = 4
 }
